@@ -21,9 +21,16 @@ var str = String($(this).get());
    
  });
  
- //////////////////////////Form///////////////////////////////
  
+ 
+
+ 
+ //////////////////////////Form///////////////////////////////
+
+
+
 function giveTip(target_items, name){
+      
     
 $(target_items).each(function(i){
     
@@ -33,17 +40,17 @@ var my_tooltip = $("#"+name+i);
 
 var inputCoord = $(this).offset();
 
-$(this).removeAttr("title").mouseover(function(){
+$(this).removeAttr("title").hover(function(){
    
-my_tooltip.slideDown(300);
+my_tooltip.slideDown(400).stop(true,true);
 
 $(this).css({backgroundColor: '#fff'});
 
 my_tooltip.css({left: inputCoord.left - 190 , top: inputCoord.top - 235});
 
-}).mouseout(function(){
+}, function(){
     
-my_tooltip.slideUp(300);
+my_tooltip.slideUp(400).stop(true,true);
 
 });
 
@@ -52,5 +59,38 @@ my_tooltip.slideUp(300);
 }
 
 giveTip("input","tooltip");
+
+ 
+ ////////////Button///////////
+
+
+function giveAllTips(target_items, name){
+      
+    
+$("input").each(function(i){
+    
+$("div label").append("<span class='"+name+"' id='"+name+i+"'><p>"+$(this).attr('title')+"</p></span>");
+
+var my_tooltip = $("#"+name+i);
+
+var inputCoord = $(this).offset();
+
+$(target_items).click(function(){
+   
+my_tooltip.slideDown(400).stop(true,true);
+
+
+my_tooltip.css({left: inputCoord.left - 190 , top: inputCoord.top - 235});
+
+});
+
+});
+
+}
+
+giveAllTips(".btn","tooltip");
+ 
+
+
       
 });//End jquery-ready
