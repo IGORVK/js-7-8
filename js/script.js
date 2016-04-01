@@ -42,7 +42,7 @@ var inputCoord = $(this).offset();
 
 $(this).removeAttr("title").hover(function(){
    
-my_tooltip.slideDown(400).stop(true,true);
+my_tooltip.stop(true,true).slideDown(200);
 
 $(this).css({backgroundColor: '#fff'});
 
@@ -50,7 +50,7 @@ my_tooltip.css({left: inputCoord.left - 190 , top: inputCoord.top - 235});
 
 }, function(){
     
-my_tooltip.slideUp(400).stop(true,true);
+my_tooltip.stop(true,true).slideUp(200);
 
 });
 
@@ -77,10 +77,10 @@ var inputCoord = $(this).offset();
 
 $(target_items).click(function(){
    
-my_tooltip.slideDown(400).stop(true,true);
-
 
 my_tooltip.css({left: inputCoord.left - 190 , top: inputCoord.top - 235});
+
+my_tooltip.stop(true,true).slideDown(200);
 
 });
 
